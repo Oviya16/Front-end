@@ -1,0 +1,172 @@
+<section class="vh-250 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Register</h3>
+                        <form #f="ngForm" (ngSubmit)="f.form.valid && onFormSubmit(); f.form.invalid && onInvalidSubmit()">
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+
+                                    <div class="form-outline">
+                                        <label class="form-label" for="firstName" required>First Name</label>
+                                        <span class="redStar">*</span>
+                                        <input type="text" pattern="[a-zA-Z ]*" name="firstName" id="firstName"
+                                            [(ngModel)]="user.firstName" class="form-control ng-invalid form-control-lg"
+                                            required />
+                                        <div [hidden]="user.firstName !=''" class="alert alert-danger">
+                                            First Name is required
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 mb-4">
+
+                                    <div class="form-outline">
+                                        <label class="form-label" for="lastName">Last
+                                            Name</label>
+                                        <span class="redStar">*</span>
+                                        <input type="text" pattern="[a-zA-Z ]*" id="lastName" name="lastName"
+                                            [(ngModel)]="user.lastName" class="form-control form-control-lg" required />
+                                        <div [hidden]="user.lastName !=''" class="alert alert-danger">
+                                            Last Name is required
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                                    <div class="form-outline datepicker w-100">
+                                        <label for="birthdayDate" class="form-label">Date of Birth</label>
+                                        <span class="redStar">*</span>
+                                        <input type="date" name="dob" [(ngModel)]="user.dob"
+                                            class="form-control form-control-lg" id="birthdayDate" required />
+                                        <div [hidden]="user.dob !=''" class="alert alert-danger">
+                                            Date of Birth is required
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 mb-4">
+
+                                    <h6 class="mb-2 pb-1">Gender <span class="redStar">*</span></h6>
+
+
+                                    <div class="form-check form-check-inline">
+                                        <input [(ngModel)]="user.gender" class="form-check-input" type="radio"
+                                            name="gender" id="femaleGender" value="female" checked />
+                                        <label class="form-check-label" for="femaleGender">Female</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input [(ngModel)]="user.gender" class="form-check-input" type="radio"
+                                            name="gender" id="maleGender" value="male" />
+                                        <label class="form-check-label" for="maleGender">Male</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input [(ngModel)]="user.gender" class="form-check-input" type="radio"
+                                            name="gender" id="otherGender" value="other" />
+                                        <label class="form-check-label" for="otherGender">Other</label>
+                                    </div>
+                                    <div [hidden]="user.gender !=''" class="alert alert-danger">
+                                        Gender is required
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4 pb-2">
+
+                                    <div class="form-outline">
+                                        <label class="form-label" for="userId">User ID</label>
+                                        <span class="redStar">*</span>
+                                        <input name="userId" [(ngModel)]="user.userId" type="text" id="userId"
+                                            class="form-control form-control-lg" required />
+                                        <div [hidden]="user.userId !=''" class="alert alert-danger">
+                                            UserID is required
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 mb-4 pb-2">
+
+                                    <div class="form-outline">
+                                        <label class="form-label" for="phoneNumber">Contact Number</label>
+                                        <span class="redStar">*</span>
+                                        <input name="contactNumber" pattern="[0-9]*" [(ngModel)]="user.contactNumber"
+                                            type="tel" id="phoneNumber" class="form-control form-control-lg" required />
+                                        <div [hidden]="user.contactNumber !=''" class="alert alert-danger">
+                                            Contact Number is required
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4 pb-2">
+
+                                    <div class="form-outline">
+                                        <label class="form-label" for="password">Password</label>
+                                        <span class="redStar">*</span>
+                                        <input name="password" [(ngModel)]="user.password" type="password" id="password"
+                                            class="form-control form-control-lg" required />
+                                        <div [hidden]="user.password !=''" class="alert alert-danger">
+                                            Password is required
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 mb-4 pb-2">
+
+                                    <div class="form-outline">
+                                        <label class="form-label" for="confirmPassword">Confirm Password</label>
+                                        <span class="redStar">*</span>
+                                        <input type="password" name="confirmPassword" id="confirmPassword"
+                                            class="form-control form-control-lg" [(ngModel)]="confirmPassword"
+                                            required />
+                                        <div [hidden]="confirmPassword !=''" class="alert alert-danger">
+                                            Confirm Password is required
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4 pb-2">
+
+                                    <div class="form-outline">
+                                        <label class="form-label" for="category">Category</label>
+                                        <span class="redStar">*</span>
+                                        <select id ="category" name ="category" class="form-control form-control-lg" [(ngModel)]="user.category"
+                                        required>
+                                            <option *ngFor = "let option of options" [ngValue] = "option">{{option}}</option>
+                            
+                                        </select>
+                                        <div [hidden]="user.category !=''" class="alert alert-danger">
+                                            Category is required
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                Please update the highlighted mandatory field(s)
+                            </div>
+
+                            <div class="mt-4 pt-2">
+                                <input class="btn btn-primary btn-lg" type="submit" value="Submit"
+                                    [disabled]="user.password != confirmPassword" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

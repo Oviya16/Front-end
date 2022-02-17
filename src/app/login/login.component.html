@@ -1,0 +1,58 @@
+<section class="vh-250 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="d-flex justify-content-center">
+                            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Sign In</h3>
+                        </div>
+                        <form #f="ngForm" (ngSubmit)="f.form.valid && onFormSubmit()">
+
+                            <div class="row">
+                                <div class="d-flex justify-content-center">
+                                    <div class="col-md-6 mb-4">
+
+                                        <div class="form-outline">
+                                            <label class="form-label" for="firstName" required>User ID</label>
+                                            <span class="redStar">*</span>
+                                            <input type="text" name="userId" id="userId" [(ngModel)]="user.userId"
+                                                class="form-control ng-invalid form-control-lg" required />
+                                            <div [hidden]="user.userId !=''" class="alert alert-danger">
+                                                User ID is required
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <div class="col-md-6 mb-4">
+
+                                        <div class="form-outline">
+                                            <label class="form-label" for="password" required>Password</label>
+                                            <span class="redStar">*</span>
+                                            <input type="password" name="password" id="password"
+                                                [(ngModel)]="user.password"
+                                                class="form-control ng-invalid form-control-lg" required />
+                                            <div [hidden]="user.password !=''" class="alert alert-danger">
+                                                Password is required
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-center">
+                                <div class="mt-4 pt-2">
+                                    <input class="btn btn-outline-primary btn-lg" type="submit" value="Login" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
