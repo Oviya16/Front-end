@@ -1,0 +1,127 @@
+                    
+                                
+                            <div class="row">
+                                    <a class="list-group-item clearfix">
+                                        <table>
+                                            <tr style="font-weight:bold">
+                                            <td ><p class="list-group-item-text"> USER ID</p></td>
+                                            <td ><p class="list-group-item-text">LEVEL</p></td>
+                                            <td><p class="list-group-item-text"> SALARY</p></td>
+                                            <td><p class="list-group-item-text">MANAGER</p></td>
+                                            </tr>
+                                            <tr *ngFor="let emp of employee;let i=index;">
+                                                <td ><p class="list-group-item-text"  name="userId" >{{emp.userId}}</p></td>
+                                                <td ><p class="list-group-item-text"  name="level" ></p>{{emp.level}}</td>
+                                                <td><p class="list-group-item-text"   name ="salary" ></p>{{emp.salary}}</td>
+                                                <td><p class="list-group-item-text"  name="manager"></p>{{emp.manager}}</td>
+                                                <td><button class = "btn btn-primary" (click)="open(edit);index=i">Edit</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <button class = "btn btn-success" (click)="open(content)">Add new Employee</button>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </a>
+                            </div>
+                            <ng-template #edit let-modal>
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="modal-basic-title">
+                                        Edit Employee details
+                                    </h4>
+                                    <button type="button" class="close" aria-label="Close"
+                                        (click)="modal.dismiss('Cross click')">
+                                        <span aria-hidden="true">
+                                            ×
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form #Edit="ngForm">
+                                        <div class="container">
+    
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <label class="form-label">User ID</label>
+                                                    <input name="userId" [(ngModel)]="employee[index].userId" type="text"
+                                                        class="form-control">
+                                                </div>
+                                                <br />
+                                                <div class="col-lg-12">
+                                                    <label class="form-label">Level</label>
+                                                    <input name="level" [(ngModel)]="employee[index].level" type="text"
+                                                        class="form-control">
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <label class="form-label">Salary</label>
+                                                    <input name="salary" [(ngModel)]="employee[index].salary" type="text"
+                                                        class="form-control">
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <label class="form-label">Manager</label>
+                                                    <input name="manager" [(ngModel)]="employee[index].manager" type="text"
+                                                        class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-dark"
+                                        (click)="modal.close('Save click');onEditSubmit()">
+                                        Save
+                                    </button>
+                                </div>
+                            </ng-template>
+                            <ng-template #content let-modal>
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="modal-basic-title">
+                                        Add Employee 
+                                    </h4>
+                                    <button type="button" class="close" aria-label="Close"
+                                        (click)="modal.dismiss('Cross click')">
+                                        <span aria-hidden="true">
+                                            ×
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form #Add="ngForm">
+                                        <div class="container">
+    
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <label class="form-label">User ID</label>
+                                                    <input name="userId" [(ngModel)]="e.userId" type="text"
+                                                        class="form-control">
+                                                </div>
+                                                <br />
+                                                <div class="col-lg-12">
+                                                    <label class="form-label">Level</label>
+                                                    <input name="level" [(ngModel)]="e.level" type="text"
+                                                        class="form-control">
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <label class="form-label">Salary</label>
+                                                    <input name="salary" [(ngModel)]="e.salary" type="text"
+                                                        class="form-control">
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <label class="form-label">Manager</label>
+                                                    <input name="manager" [(ngModel)]="e.manager" type="text"
+                                                        class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-dark"
+                                        (click)="modal.close('Save click');onAddSubmit()">
+                                        Save
+                                    </button>;
+                                </div>
+                            </ng-template>
+
+

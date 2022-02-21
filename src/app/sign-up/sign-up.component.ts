@@ -8,7 +8,7 @@ import { User } from '../Types/User';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-  options = ['Employee','Manager','User'];
+  options = ['employee','manager','user'];
   confirmPassword: string = '';
   user: User = {
     firstName: '',
@@ -33,11 +33,12 @@ export class SignUpComponent implements OnInit {
       if (data.status === 201) {
         alert("New user created successfully")
       }
+      window.location.href="/login"
     });
     alert("Success")
   }
   onInvalidSubmit(){
     alert("Please update the highlighted mandatory field(s)")
   }
-
+  
 }

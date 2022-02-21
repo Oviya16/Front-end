@@ -16,9 +16,7 @@
                                         <input type="text" pattern="[a-zA-Z ]*" name="firstName" id="firstName"
                                             [(ngModel)]="user.firstName" class="form-control ng-invalid form-control-lg"
                                             required />
-                                        <div [hidden]="user.firstName !=''" class="alert alert-danger">
-                                            First Name is required
-                                        </div>
+                                        
                                     </div>
 
                                 </div>
@@ -30,9 +28,7 @@
                                         <span class="redStar">*</span>
                                         <input type="text" pattern="[a-zA-Z ]*" id="lastName" name="lastName"
                                             [(ngModel)]="user.lastName" class="form-control form-control-lg" required />
-                                        <div [hidden]="user.lastName !=''" class="alert alert-danger">
-                                            Last Name is required
-                                        </div>
+                                        
                                     </div>
 
                                 </div>
@@ -46,9 +42,7 @@
                                         <span class="redStar">*</span>
                                         <input type="date" name="dob" [(ngModel)]="user.dob"
                                             class="form-control form-control-lg" id="birthdayDate" required />
-                                        <div [hidden]="user.dob !=''" class="alert alert-danger">
-                                            Date of Birth is required
-                                        </div>
+                                       
                                     </div>
 
                                 </div>
@@ -74,9 +68,7 @@
                                             name="gender" id="otherGender" value="other" />
                                         <label class="form-check-label" for="otherGender">Other</label>
                                     </div>
-                                    <div [hidden]="user.gender !=''" class="alert alert-danger">
-                                        Gender is required
-                                    </div>
+                                    
 
                                 </div>
                             </div>
@@ -89,9 +81,7 @@
                                         <span class="redStar">*</span>
                                         <input name="userId" [(ngModel)]="user.userId" type="text" id="userId"
                                             class="form-control form-control-lg" required />
-                                        <div [hidden]="user.userId !=''" class="alert alert-danger">
-                                            UserID is required
-                                        </div>
+                                        
                                     </div>
 
                                 </div>
@@ -102,9 +92,7 @@
                                         <span class="redStar">*</span>
                                         <input name="contactNumber" pattern="[0-9]*" [(ngModel)]="user.contactNumber"
                                             type="tel" id="phoneNumber" class="form-control form-control-lg" required />
-                                        <div [hidden]="user.contactNumber !=''" class="alert alert-danger">
-                                            Contact Number is required
-                                        </div>
+                                        
                                     </div>
 
                                 </div>
@@ -118,9 +106,7 @@
                                         <span class="redStar">*</span>
                                         <input name="password" [(ngModel)]="user.password" type="password" id="password"
                                             class="form-control form-control-lg" required />
-                                        <div [hidden]="user.password !=''" class="alert alert-danger">
-                                            Password is required
-                                        </div>
+                                        
                                     </div>
 
                                 </div>
@@ -132,9 +118,7 @@
                                         <input type="password" name="confirmPassword" id="confirmPassword"
                                             class="form-control form-control-lg" [(ngModel)]="confirmPassword"
                                             required />
-                                        <div [hidden]="confirmPassword !=''" class="alert alert-danger">
-                                            Confirm Password is required
-                                        </div>
+                                        
                                     </div>
 
                                 </div>
@@ -150,14 +134,9 @@
                                             <option *ngFor = "let option of options" [ngValue] = "option">{{option}}</option>
                             
                                         </select>
-                                        <div [hidden]="user.category !=''" class="alert alert-danger">
-                                            Category is required
-                                        </div>
+                                        
                                     </div>
                                 </div>
-                            </div>
-                            <div>
-                                Please update the highlighted mandatory field(s)
                             </div>
 
                             <div class="mt-4 pt-2">

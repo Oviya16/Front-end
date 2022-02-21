@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Employee } from '../Types/Employee';
+import { Response } from '../Types/Response';
 import { User } from '../Types/User';
 
 @Injectable({
@@ -17,7 +19,7 @@ export class RestService {
   }
 
   postUser(user: User) {
-    const headers = { 'content-type': 'application/json' }
+    const headers = { 'content-type': 'application/json'}
     const body = JSON.stringify(user);
     return this.http.post<User>(this.root_url + "User", body, { 'headers': headers, 'observe': 'response' });
   }
@@ -29,6 +31,26 @@ export class RestService {
       password: user.password
     }
     const body = JSON.stringify(request);
-    return this.http.put<any>(this.root_url + "login", body, { 'headers': headers, 'observe': 'response' });
+    return this.http.post<Response>(this.root_url + "login", body, { 'headers': headers});
+  }
+  getEmployee() {
+    return this.http.get<Employee[]>(this.root_url+"employee");
+  }
+  editEmployee(employee:Employee) {
+    const headers = { 'content-type': 'application/json'}
+    var request={
+      userId:employee.userId,
+      level:employee.level,
+      salary:employee.salary,
+      manager:employee.manager
+    }
+    const body = JSON.stringify(employee);
+    return this.http.put<Employee[]>(this.root_url+"employee",body,{ 'headers': headers, 'observe': 'response'})
+  }
+  addEmployee(employee:Employee){
+    const headers = { 'content-type': 'application/json'}
+   
+    const body = JSON.stringify(employee);
+    return this.http.post<Employee>(this.root_url+"employee",body,{ 'headers': headers, 'observe': 'response'})
   }
 }

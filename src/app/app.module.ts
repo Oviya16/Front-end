@@ -11,6 +11,8 @@ import { RouterModule } from '@angular/router';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -18,14 +20,16 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     MenuComponent,
     SignUpComponent,
-    LoginComponent
+    LoginComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
