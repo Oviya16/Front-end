@@ -35,7 +35,6 @@ export class SignUpComponent implements OnInit {
       }
       window.location.href="/login"
     });
-    alert("Success")
   }
   onInvalidSubmit(){
     alert("Please update the highlighted mandatory field(s)")

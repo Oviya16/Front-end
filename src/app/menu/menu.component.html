@@ -16,7 +16,7 @@
 
 
                 <li *ngIf="isLoggedIn && category=='manager'" style="color:white;" class="nav-item">
-                    <a (click)="isShown = false" class="nav-link">Buy Ships</a>
+                    <a routerLink="ship" (click)="isShown = false" class="nav-link">Buy Ships</a>
                 </li>
                 <li *ngIf="isLoggedIn && category=='manager'" style="color:white;" class="nav-item">
                     <a (click)="isShown = false" class="nav-link">View Bookings</a>
@@ -33,7 +33,7 @@
 
 
                 <li *ngIf="isLoggedIn && category=='employee'" style="color:white;" class="nav-item">
-                    <a (click)="isShown = false" class="nav-link">Buy Ships</a>
+                    <a routerLink="ship" (click)="isShown = false" class="nav-link">Buy Ships</a>
                 </li>
                 <li  *ngIf="isLoggedIn && category=='employee'" style="color:white;" class="nav-item">
                     <a (click)="isShown = false" class="nav-link">View Bookings</a>

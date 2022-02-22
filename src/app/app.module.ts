@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ShipsComponent } from './ships/ships.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MenuComponent,
     SignUpComponent,
     LoginComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    ShipsComponent
   ],
   imports: [
     BrowserModule,
