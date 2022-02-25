@@ -1,0 +1,64 @@
+<section class="vh-50 gradient-custom" style="overflow-x:auto">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Submit FeedBack</h3>
+                        <br><br>
+                        <form #f="ngForm" (ngSubmit)="f.form.valid && onFormReviewSubmit()">
+
+                            <div class="col-md-12 mb-4 pb-2">
+
+                                <div class="col-lg-12">
+                                    <label class="form-label">{{reviewQns.ques1}}<span class="redStar">*</span></label>
+                                    <input name="ans1" required [(ngModel)]="review.ans1" type="text" #ans1="ngModel"
+                                        class="form-control">
+                                    <div *ngIf="ans1.invalid && f.submitted" [hidden]="review.ans1 !=''"
+                                        class="alert alert-danger">
+                                        Answer is required
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <label class="form-label">{{reviewQns.ques2}}<span class="redStar">*</span></label>
+                                    <input name="ans2" required [(ngModel)]="review.ans2" type="text" #ans2="ngModel"
+                                        class="form-control">
+                                    <div *ngIf="ans2.invalid && f.submitted" [hidden]="review.ans2 !=''"
+                                        class="alert alert-danger">
+                                        Answer is required
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <label class="form-label">{{reviewQns.ques3}}<span class="redStar">*</span></label>
+                                    <input name="ans3" required [(ngModel)]="review.ans3" type="text" #ans3="ngModel"
+                                        class="form-control">
+                                    <div *ngIf="ans3.invalid && f.submitted" [hidden]="review.ans3 !=''"
+                                        class="alert alert-danger">
+                                        Answer is required
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <p>Rating:</p>
+                            <div class="rangeClass">
+                                <input #rating="ngModel" type="range" min="1" max="5" name="rating" required
+                                    [(ngModel)]="review.rating">
+                                <div *ngIf="rating.invalid && f.submitted" [hidden]="review.rating !=''"
+                                    class="alert alert-danger">
+                                    Rating is required
+                                </div>
+                            </div>
+
+
+                            <div class="mt-4 pt-2">
+                                <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -25,10 +25,10 @@
                     <a routerLink="employee" (click)="isShown = false" class="nav-link">Edit Employee Details</a>
                 </li>
                 <li *ngIf="isLoggedIn && category=='manager'" style="color:white;" class="nav-item">
-                    <a (click)="isShown = false" class="nav-link">Tasks</a>
+                    <a routerLink="assignTasks" (click)="isShown = false" class="nav-link">Tasks</a>
                 </li>
                 <li *ngIf="isLoggedIn && category=='manager'" style="color:white;" class="nav-item">
-                    <a (click)="isShown = false" class="nav-link">Add feedback</a>
+                    <a  routerLink="displayFeedback" (click)="isShown = false" class="nav-link">Add feedback</a>
                 </li>
 
 
@@ -39,7 +39,7 @@
                     <a routerLink= "viewBookings" (click)="isShown = false" class="nav-link">View Bookings</a>
                 </li>
                 <li  *ngIf="isLoggedIn && category=='employee'" style="color:white;" class="nav-item">
-                    <a (click)="isShown = false" class="nav-link">Your Tasks</a>
+                    <a routerLink="yourTasks" (click)="isShown = false" class="nav-link">Your Tasks</a>
                 </li>
 
 
@@ -50,7 +50,7 @@
                     <a  routerLink="booking" (click)="isShown = false" class="nav-link">Book</a>
                 </li>
                 <li *ngIf="isLoggedIn && category=='user'" style="color:white;" class="nav-item">
-                    <a (click)="isShown = false" class="nav-link">Feedback</a>
+                    <a routerLink="feedback" (click)="isShown = false" class="nav-link">Feedback</a>
                 </li>
                
             
@@ -59,7 +59,7 @@
                     <a (click)="isShown = false" class="nav-link">Approve Admin Requests</a>
                 </li>
                 <li *ngIf="isLoggedIn && category=='superAdmin'" style="color:white;" class="nav-item">
-                    <a (click)="isShown = false" class="nav-link"> Add Feedback</a>
+                    <a routerLink="displayFeedback" (click)="isShown = false" class="nav-link"> Add Feedback</a>
                 </li>
                 <li *ngIf="isLoggedIn && category=='superAdmin'" style="color:white;" class="nav-item">
                     <a (click)="isShown = false" class="nav-link">Buy Ships</a>

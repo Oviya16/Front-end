@@ -1,0 +1,61 @@
+<section class="vh-50 gradient-custom" style="overflow-x:auto">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Set Feedback Questions</h3>
+                        <form #f="ngForm">
+                            <br />
+                            <div class="row">
+                                <div class="col-md-12 mb-4">
+
+                                    <div class="form-outline">
+                                        <label class="form-label" for="ques1" required>Question 1</label>
+                                        <span class="redStar">*</span>
+                                        <textarea name="ques1" id="ques1" [(ngModel)]="reviewQns.ques1" #ques1="ngModel"
+                                            class="form-control ng-invalid form-control-lg" required></textarea>
+                                        <div *ngIf="ques1.touched  && ques1.value == ''" class="alert alert-danger">
+                                            Some text is required
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-12 mb-4">
+
+                                    <div class="form-outline">
+                                        <label class="form-label" for="ques2" required>Question 2</label>
+                                        <span class="redStar">*</span>
+                                        <textarea name="ques2" id="ques2" [(ngModel)]="reviewQns.ques2" #ques2="ngModel"
+                                            class="form-control ng-invalid form-control-lg" required></textarea>
+                                        <div *ngIf="ques2.touched  && ques2.value == ''" class="alert alert-danger">
+                                            Some text is required
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-12 mb-4">
+
+                                    <div class="form-outline">
+                                        <label class="form-label" for="ques3" required>Question 3</label>
+                                        <span class="redStar">*</span>
+                                        <textarea name="ques3" id="ques3" [(ngModel)]="reviewQns.ques3" #ques3="ngModel"
+                                            class="form-control ng-invalid form-control-lg" required></textarea>
+                                        <div *ngIf="ques3.touched  && ques3.value == ''" class="alert alert-danger">
+                                            Some text is required
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="mt-4 pt-2">
+                                <input class="btn btn-primary btn-lg" type="submit" value="Submit"
+                                    (click)="f.form.valid && onFormSubmit()" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

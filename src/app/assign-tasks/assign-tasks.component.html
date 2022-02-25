@@ -1,0 +1,83 @@
+<div class="container" id="content" #content>
+    <a class="list-group-item clearfix">
+        <table>
+            <tr style="font-weight:bold">
+            <td ><p class="list-group-item-text"> USER ID</p></td>
+            <td ><p class="list-group-item-text"> TASKS</p></td>
+            <td ><p class="list-group-item-text">FROM DATE</p></td>
+            <td><p class="list-group-item-text"> TO DATE</p></td>
+            <td><p class="list-group-item-text">STATUS</p></td>
+            </tr>
+            <tr *ngFor="let t of empTasks;let i=index;">
+                <td ><p class="list-group-item-text"  name="userId" >{{t.userId}}</p></td>
+                <td ><p class="list-group-item-text"  name="task" >{{t.task}}</p></td>
+                <td ><p class="list-group-item-text"  name="fromDate" ></p>{{t.fromDate}}</td>
+                <td> <p class="list-group-item-text"  name="toDate" ></p>{{t.toDate}}</td>
+                <td> <p class="list-group-item-text"  name="status"></p>{{t.status}}</td>
+                <td><button class = "btn btn-primary" (click)="onDeleteClick();index=i">Delete</button></td>
+            </tr>
+        </table>
+        
+    </a>
+</div>
+<table>
+    <tr>
+        <td>
+            <button class = "btn btn-success" (click)="open(add)">Add Tasks</button>
+        </td>
+    </tr>
+</table>
+<ng-template #add let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">
+            Add Employee 
+        </h4>
+        <button type="button" class="close" aria-label="Close"
+            (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">
+                ×
+            </span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form #Add="ngForm">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label class="form-label">User ID</label>
+                        <input name="userId" [(ngModel)]="task.userId" type="text"
+                            class="form-control">
+                    </div>
+                    <br />
+                    <div class="col-lg-12">
+                        <label class="form-label">Task</label>
+                        <input name="task" [(ngModel)]="task.task" type="text"
+                            class="form-control">
+                    </div>
+                    <div class="col-lg-12">
+                        <label class="form-label">From Date</label>
+                        <input name="fromdate" [(ngModel)]="task.fromDate" type="text"
+                            class="form-control">
+                    </div>
+                    <div class="col-lg-12">
+                        <label class="form-label">To Date</label>
+                        <input name="toDate" [(ngModel)]="task.toDate" type="text"
+                            class="form-control">
+                    </div>
+                    <div class="col-lg-12">
+                        <label class="form-label">Status</label>
+                        <input name="status" [(ngModel)]="task.status" type="text"
+                            class="form-control">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark"
+            (click)="modal.close('Save click');onAddSubmit()">
+            Add
+        </button>;
+    </div>
+</ng-template>

@@ -17,6 +17,11 @@ import { ShipsComponent } from './ships/ships.component';
 import { BookingComponent } from './booking/booking.component';
 import { ViewBookingsComponent } from './view-bookings/view-bookings.component';
 import { YourBookingsComponent } from './your-bookings/your-bookings.component';
+import { YourTasksComponent } from './your-tasks/your-tasks.component';
+import { AssignTasksComponent } from './assign-tasks/assign-tasks.component';
+import { DisplayFeedbackComponent } from './display-feedback/display-feedback.component';
+import { AddFeedbackComponent } from './add-feedback/add-feedback.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 
 
@@ -30,7 +35,12 @@ import { YourBookingsComponent } from './your-bookings/your-bookings.component';
     ShipsComponent,
     BookingComponent,
     ViewBookingsComponent,
-    YourBookingsComponent
+    YourBookingsComponent,
+    YourTasksComponent,
+    AssignTasksComponent,
+    DisplayFeedbackComponent,
+    AddFeedbackComponent,
+    FeedbackComponent
     
   ],
   imports: [

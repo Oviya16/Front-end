@@ -1,0 +1,49 @@
+<section class="vh-50 gradient-custom" style="overflow-x:auto">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-12">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Feedback</h3>
+                        <hr>
+
+                        <div class="container" style="overflow-x:auto">
+                            <table class="table table-bordered border-success  table-hover table-success table-striped">
+                                <thead class="thead-dark">
+                                    <tr scope="row">
+                                        <th scope="col" class="col">#</th>
+                                        <th scope="col" class="ans col">User Id</th>
+                                        <th scope="col" class="col">Question 1</th>
+                                        <th scope="col" class="ans col">Answer 1</th>
+                                        <th scope="col" class="col">Question 2</th>
+                                        <th scope="col" class="ans col">Answer 2</th>
+                                        <th scope="col" class="col">Question 3</th>
+                                        <th scope="col" class="ans col">Answer 3</th>
+                                        <th scope="col" class="col">Rating</th>
+                                    </tr>
+                                </thead>
+                                <tr class="border-success" scope="row" *ngFor="let review of feedback;let i = index">
+                                    <td class="col">{{i+1}}</td>
+                                    <td class="col">{{review.userId}}</td>
+                                    <td class="col">{{review.ques1}}</td>
+                                    <td class="col">{{review.ans1}}</td>
+                                    <td class="col">{{review.ques2}}</td>
+                                    <td class="col">{{review.ans2}} </td>
+                                    <td class="col">{{review.ques3}}</td>
+                                    <td class="col">{{review.ans3}} </td>
+                                    <td class="col">{{review.rating}} </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="button" value="Generate Feedback Report" class="btn btn-success" (click)="SavePDF()">
+    <button class = "btn btn-primary" (click)="onAddClick()">Add Feedback</button>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+</section>
