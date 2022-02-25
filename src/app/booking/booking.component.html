@@ -1,0 +1,126 @@
+<div>
+    <div style="align-items: left">
+        <button class = "btn btn-primary" (click)="onPassengerClick();clicks=true;isPassenger=true">Passenger</button>
+    </div>
+    <div style="align-items: right">
+     <button class = "btn btn-primary" (click)="onCargoClick();clicks=true;isPassenger=false">Cargo</button>
+    </div>
+    <div *ngIf="clicks" class="container">
+      <a class="list-group-item clearfix">
+         <table>
+            <tr style="font-weight:bold">
+            <td ><p class="list-group-item-text">SHIP NAME</p></td>
+            <td><p class="list-group-item-text">SOURCE</p></td>
+            <td ><p class="list-group-item-text">DESTINATION</p></td>
+            <td ><p class="list-group-item-text">DEPARTURE DATE</p></td>
+            <td><p class="list-group-item-text"> DEPARTURE TIME</p></td>
+            <td><p class="list-group-item-text">ARRIVAL DATE</p></td>
+            <td ><p class="list-group-item-text">ARRIVAL TIME</p></td>
+            <td ><p class="list-group-item-text">TICKETS AVAILABLE</p></td>
+            <td><p class="list-group-item-text"> TICKET COST</p></td>
+            </tr>
+            <tr *ngFor="let sh of ship;let i=index;">
+                <td ><p class="list-group-item-text"  name="shipName" ></p>{{sh.shipName}}</td>
+                <td><p class="list-group-item-text"  name="source"></p>{{sh.source}}</td>
+                <td ><p class="list-group-item-text"  name="destination" >{{sh.destination}}</p></td>
+                <td ><p class="list-group-item-text"  name="departureDate" ></p>{{sh.departureDate}}</td>
+                <td><p class="list-group-item-text"   name ="departureTime" ></p>{{sh.departureTime}}</td>
+                <td><p class="list-group-item-text"  name="arrivalDate"></p>{{sh.arrivalDate}}</td>
+                <td ><p class="list-group-item-text"  name="arrivalTime" >{{sh.arrivalTime}}</p></td>
+                <td ><p class="list-group-item-text"  name="ticketsAvailable" ></p>{{sh.ticketsAvailable}}</td>
+                <td><p class="list-group-item-text"   name ="ticketCost" ></p>{{sh.ticketCost}}</td>
+                <td><button class = "btn btn-primary" (click)="open(book);index=i;">Book</button></td>
+            </tr>
+         </table>
+        </a>
+    </div>
+</div>
+
+<ng-template #book let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">
+            Select tickets
+        </h4>
+        <button type="button" class="close" aria-label="Close"
+            (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">
+                ×
+            </span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form #Book="ngForm">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label class="form-label">Product </label>
+                        <select id ="product" name ="product" class="form-control" [(ngModel)]="ship[index].product" [disabled]="isPassenger">
+                                            <option *ngFor = "let option of options" [ngValue] = "option">{{option}}</option>
+                                        </select>
+                    </div>
+                    <br />
+                    <div class="col-lg-12">
+                        <label class="form-label">No.of.Tickets/No.of.Kgs</label>
+                        <input name="quantity" [(ngModel)]="ship[index].quantity" type="text"
+                            class="form-control">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark"
+            (click)="modal.close('Save click');onBookSubmit();open(confirmBooking)">
+            Book
+        </button>
+    </div>
+</ng-template>
+
+<ng-template #confirmBooking let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">
+            Confirm Booking
+        </h4>
+        <button type="button" class="close" aria-label="Close"
+            (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">
+                ×
+            </span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form #Book="ngForm">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label class="form-label">Product </label>
+                        <p id ="product" name ="product" class="form-control">{{booking.product}} 
+                        </p>
+                    </div>
+                    <br />
+                    <div class="col-lg-12">
+                        <label class="form-label">No.of.Tickets/No.of.Kgs</label>
+                        <p name="quantity" class="form-control" >{{booking.quantity}} 
+                        </p>
+                    </div>
+                    <br/>
+                    <div class="col-lg-12">
+                        <label class="form-label">Total Cost</label>
+                        <p name="quantity" class="form-control" >{{booking.amount}} 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark"
+            (click)="modal.close('Save click');onConfirmbooking();">
+            Confirm Book
+        </button>
+    </div>
+</ng-template>
+
+

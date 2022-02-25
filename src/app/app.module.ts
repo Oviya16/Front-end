@@ -14,6 +14,10 @@ import { LoginComponent } from './login/login.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShipsComponent } from './ships/ships.component';
+import { BookingComponent } from './booking/booking.component';
+import { ViewBookingsComponent } from './view-bookings/view-bookings.component';
+import { YourBookingsComponent } from './your-bookings/your-bookings.component';
+
 
 
 @NgModule({
@@ -23,7 +27,11 @@ import { ShipsComponent } from './ships/ships.component';
     SignUpComponent,
     LoginComponent,
     EmployeeComponent,
-    ShipsComponent
+    ShipsComponent,
+    BookingComponent,
+    ViewBookingsComponent,
+    YourBookingsComponent
+    
   ],
   imports: [
     BrowserModule,

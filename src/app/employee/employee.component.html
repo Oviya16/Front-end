@@ -1,6 +1,6 @@
                     
                                 
-                            <div class="row">
+                            <div class="container" id="content" #content>
                                     <a class="list-group-item clearfix">
                                         <table>
                                             <tr style="font-weight:bold">
@@ -16,15 +16,18 @@
                                                 <td><p class="list-group-item-text"  name="manager"></p>{{emp.manager}}</td>
                                                 <td><button class = "btn btn-primary" (click)="open(edit);index=i">Edit</button></td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    <button class = "btn btn-success" (click)="open(content)">Add new Employee</button>
-                                                </td>
-                                            </tr>
                                         </table>
-
+                                        
                                     </a>
                             </div>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <button class = "btn btn-success" (click)="open(content)">Add new Employee</button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <input type="button" value="Download PDF" class="btn btn-success" (click)="SavePDF()">
                             <ng-template #edit let-modal>
                                 <div class="modal-header">
                                     <h4 class="modal-title" id="modal-basic-title">

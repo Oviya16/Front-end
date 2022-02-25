@@ -1,5 +1,5 @@
 <div class="row">
-    <a class="list-group-item clearfix">
+    <a class="list-group-item clearfix" class="container" id="content" #content>
         <table>
             <tr style="font-weight:bold">
             <td ><p class="list-group-item-text"> SHIP ID</p></td>
@@ -17,6 +17,9 @@
         </table>
     </a>
 </div>
+
+<input type="button" value="Download PDF" class="btn btn-success" (click)="SavePDF()">
+
 <div class="row">
     <a class="list-group-item clearfix">
         <table>

@@ -1,9 +1,10 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { RestService } from '../Services/rest.service';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Ship } from '../Types/Ship';
 import { ShipStore } from '../Types/ShipStore';
-
+import { ShipService } from '../Services/ship.service';
+import jsPDF from 'jspdf';
 @Component({
   selector: 'app-ships',
   templateUrl: './ships.component.html',
@@ -30,13 +31,13 @@ export class ShipsComponent implements OnInit {
   showModal: boolean = true;
   closeResult = '';
 
-  constructor(private restService: RestService,@Inject(NgbModal) private modalService:NgbModal) { }
+  constructor(private shipService: ShipService,@Inject(NgbModal) private modalService:NgbModal) { }
 
   ngOnInit(): void {
-    this.restService.getShips().subscribe(data=>{
+    this.shipService.getShips().subscribe(data=>{
       this.ship=data
       console.log(this.ship)
-      this.restService.getShipsStore().subscribe(data=>{
+      this.shipService.getShipsStore().subscribe(data=>{
         this.shipStore=data
         console.log(this.shipStore)
       })
@@ -64,19 +65,34 @@ export class ShipsComponent implements OnInit {
   }
 
   onEditSubmit(){
-    this.restService.editShips(this.ship[this.index]).subscribe(data => {
+    this.shipService.editShips(this.ship[this.index]).subscribe(data => {
       data = data;
       //window.location.href="/employee"
     })
 
   }
   onBuyClick(){
-    this.restService.buyShips(this.ships).subscribe(data =>{
+    this.shipService.buyShips(this.ships).subscribe(data =>{
       data=data;
      window.location.href="/ship"
     })
   }
-  }
+  @ViewChild('content')
+  content!: ElementRef;
+  public SavePDF(): void {
+    let content = this.content.nativeElement;
+    let doc = new jsPDF('p', 'pt', 'a3');
+    let _elementHandlers =
+    {
+      '#editor': function (element: any, renderer: any) {
+        return true;
+      }
+    };
+    doc.html(this.content.nativeElement, {
+      callback: (doc) => {
+        doc.save('Employees.pdf');
+      }
 
-
-
+    });
+  } 
+}

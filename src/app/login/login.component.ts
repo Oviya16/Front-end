@@ -34,8 +34,8 @@ export class LoginComponent implements OnInit {
    
       alert("Logged In")
       window.location.href="/"
-      document.cookie = "userId=" + this.user.userId;
-      document.cookie = "category=" + data.category;
+      localStorage.setItem('shipUser', this.user.userId)
+      localStorage.setItem('shipCategory', data.category)
       console.log(data.category)
     }, error => {
       console.log(error.status)

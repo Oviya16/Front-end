@@ -1,8 +1,10 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { RestService } from '../Services/rest.service';
 import { Employee } from '../Types/Employee';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { EmployeeService } from '../Services/employee.service';
+import jsPDF from 'jspdf';
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -21,10 +23,10 @@ export class EmployeeComponent implements OnInit {
   closeResult = '';
 
 
-  constructor(private restService: RestService,@Inject(NgbModal) private modalService:NgbModal) { }
+  constructor(private employeeService : EmployeeService,@Inject(NgbModal) private modalService:NgbModal) { }
 
   ngOnInit(): void {
-    this.restService.getEmployee().subscribe(data=>{
+    this.employeeService.getEmployee().subscribe(data=>{
       this.employee=data
       console.log(this.employee)
     })
@@ -49,16 +51,35 @@ export class EmployeeComponent implements OnInit {
     }
   }
   onEditSubmit(){
-    this.restService.editEmployee(this.employee[this.index]).subscribe(data => {
+    this.employeeService.editEmployee(this.employee[this.index]).subscribe(data => {
       data = data;
       //window.location.href="/employee"
     })
 
   }
   onAddSubmit(){
-    this.restService.addEmployee(this.e).subscribe(data =>{
+    this.employeeService.addEmployee(this.e).subscribe(data =>{
       data=data;
       window.location.href="/employee"
     })
+  }
+  @ViewChild('content')
+  content!: ElementRef;
+  public SavePDF(): void {
+    let content = this.content.nativeElement;
+    let doc = new jsPDF('p', 'pt', 'a3');
+    let _elementHandlers =
+    {
+      '#editor': function (element: any, renderer: any) {
+        return true;
+      }
+    };
+    doc.html(this.content.nativeElement, {
+      callback: (doc) => {
+        doc.save('Employees.pdf');
+      }
+
+    });
+
   }
 }

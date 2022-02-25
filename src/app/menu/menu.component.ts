@@ -9,12 +9,12 @@ import { UtilService } from '../Services/util.service';
 export class MenuComponent implements OnInit {
   isShown = false;
   isLoggedIn= false;
-  category =this.utilService.readCookie();
+  category =this.utilService.readLocalStorageRole();
   
   constructor(private utilService: UtilService) { }
 
   ngOnInit(): void {
-    this.category =this.utilService.readCookie();
+    this.category =this.utilService.readLocalStorageRole();
   if(this.category =='user' || this.category=='employee'|| this.category=='manager' || this.category=='superAdmin'){
     this.isLoggedIn = true;
   } else{
@@ -23,10 +23,8 @@ export class MenuComponent implements OnInit {
 
   }
   onLogOut() {
-    var cookie = document.cookie;
-    var cookieVal = cookie.split(";")
-    document.cookie = cookieVal[0] + ";expires=Thu, 18 Dec 2013 12:00:00 UTC";
-    document.cookie = cookieVal[1] + ";expires=Thu, 18 Dec 2013 12:00:00 UTC";
+    localStorage.removeItem('shipUser')
+    localStorage.removeItem('shipCategory')
     window.location.href="/"
   }
 }
