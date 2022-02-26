@@ -4,10 +4,11 @@
   border-right: white;
   border-bottom: white;
 }
-
+/**
 .ng-invalid:not(form)  {
   border-left: 5px solid #a94442; /* red */
-  border-right: 5px solid #a94442;
+ /** border-right: 5px solid #a94442;
   border-top: 5px solid #a94442;
   border-bottom:5px solid#a94442;
 }
+**/

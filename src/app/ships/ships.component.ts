@@ -5,6 +5,8 @@ import { Ship } from '../Types/Ship';
 import { ShipStore } from '../Types/ShipStore';
 import { ShipService } from '../Services/ship.service';
 import jsPDF from 'jspdf';
+import { Wallet } from '../Types/Wallet';
+import { WalletService } from '../Services/wallet.service';
 @Component({
   selector: 'app-ships',
   templateUrl: './ships.component.html',
@@ -26,12 +28,16 @@ export class ShipsComponent implements OnInit {
     cost: 0
   }
   shipStore : ShipStore[]=[]
-
+  wallet:Wallet={
+    id: 0,
+    totalAmount: 0
+  }
+  walletArray:Wallet[]=[];
   index=0
   showModal: boolean = true;
   closeResult = '';
 
-  constructor(private shipService: ShipService,@Inject(NgbModal) private modalService:NgbModal) { }
+  constructor(private shipService: ShipService,@Inject(NgbModal) private modalService:NgbModal,private walletService:WalletService) { }
 
   ngOnInit(): void {
     this.shipService.getShips().subscribe(data=>{
@@ -74,7 +80,14 @@ export class ShipsComponent implements OnInit {
   onBuyClick(){
     this.shipService.buyShips(this.ships).subscribe(data =>{
       data=data;
-     window.location.href="/ship"
+      window.location.href="/ship"
+    })
+    this.walletService.getWallet().subscribe(data=>{
+      this.walletArray=data
+      this.walletArray[0].totalAmount-=this.ships.cost;
+      this.walletService.buyShips(this.walletArray[0]).subscribe(data=>{
+        data=data
+      })
     })
   }
   @ViewChild('content')

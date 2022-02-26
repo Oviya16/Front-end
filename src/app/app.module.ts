@@ -22,6 +22,8 @@ import { AssignTasksComponent } from './assign-tasks/assign-tasks.component';
 import { DisplayFeedbackComponent } from './display-feedback/display-feedback.component';
 import { AddFeedbackComponent } from './add-feedback/add-feedback.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { WalletComponent } from './wallet/wallet.component';
+import { ApproveRequestComponent } from './approve-request/approve-request.component';
 
 
 
@@ -40,7 +42,9 @@ import { FeedbackComponent } from './feedback/feedback.component';
     AssignTasksComponent,
     DisplayFeedbackComponent,
     AddFeedbackComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    WalletComponent,
+    ApproveRequestComponent
     
   ],
   imports: [

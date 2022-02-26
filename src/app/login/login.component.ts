@@ -39,10 +39,15 @@ export class LoginComponent implements OnInit {
       console.log(data.category)
     }, error => {
       console.log(error.status)
+      console.log(error.error.category)
       if (error.error.category == "Password") {
         alert("Password is incorrect")
       } else if (error.error.category == "UserId") {
         alert("UserId not found")
+      } else if(error.error.category=="Pending"){
+        alert("Awaiting Super Admin Approval")
+      } else if (error.error.category=="Rejected") {
+        alert("Your Registration was rejected by Super Admin")
       }
     })
   }

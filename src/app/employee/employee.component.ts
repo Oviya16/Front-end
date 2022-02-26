@@ -57,6 +57,7 @@ export class EmployeeComponent implements OnInit {
     })
 
   }
+  
   onAddSubmit(){
     this.employeeService.addEmployee(this.e).subscribe(data =>{
       data=data;

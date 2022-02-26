@@ -1,0 +1,23 @@
+<div class="container" id="content" #content>
+    <a class="list-group-item clearfix">
+        <table>
+            <tr style="font-weight:bold">
+            <td ><p class="list-group-item-text"> First Name</p></td>
+            <td ><p class="list-group-item-text">Last Name</p></td>
+            <td><p class="list-group-item-text">User Id</p></td>
+            <td><p class="list-group-item-text">Category</p></td>
+           <td><p class="list-group-item-text">Rejected</p></td> 
+            </tr>
+            <tr *ngFor="let temp of tempArray;let i=index;">
+                <td ><p class="list-group-item-text"  name="firstName" >{{temp.firstName}}</p></td>
+                <td ><p class="list-group-item-text"  name="lastName" ></p>{{temp.lastName}}</td>
+                <td><p class="list-group-item-text"   name ="userId" ></p>{{temp.userId}}</td>
+                <td><p class="list-group-item-text"  name="category"></p>{{temp.category}}</td>
+                 <td><p class="list-group-item-text"  name="rejected"></p>{{temp.rejected}}</td>
+                <td *ngIf="temp.rejected==false"><button class = "btn btn-primary" (click)="onApproveClick();index=i">Approve</button></td>
+                <td *ngIf="temp.rejected==false"><button class = "btn btn-primary" (click)="onRejectClick();index=i">Reject</button></td>
+            </tr>
+        </table>
+        
+    </a>
+</div>

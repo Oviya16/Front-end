@@ -5,6 +5,8 @@ import { Booking } from '../Types/Booking';
 import { ShipDetails } from '../Types/ShipDetails';
 import { UtilService } from '../Services/util.service';
 import jsPDF from 'jspdf';
+import { Wallet } from '../Types/Wallet';
+import { WalletService } from '../Services/wallet.service';
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
@@ -38,7 +40,12 @@ export class BookingComponent implements OnInit {
     quantity: 0,
     amount: 0
   }
-
+  wallet:Wallet={
+    id: 0,
+    totalAmount: 0
+  }
+  walletArray:Wallet[]=[]
+  
   isPassenger: boolean=false
   options = ['coal','utilities','clothes'];
   index=0
@@ -47,7 +54,7 @@ export class BookingComponent implements OnInit {
   showModal: boolean = true;
   closeResult = '';
 
-  constructor(private bookingService:BookingService ,@Inject(NgbModal) private modalService:NgbModal,private utilService: UtilService) { }
+  constructor(private bookingService:BookingService ,@Inject(NgbModal) private modalService:NgbModal,private utilService: UtilService,private walletService :WalletService) { }
 
   ngOnInit(): void {
   }
@@ -99,9 +106,15 @@ export class BookingComponent implements OnInit {
   onConfirmbooking(){
     this.bookingService.addBooking(this.booking).subscribe(data=>{
       data=data 
+      window.location.href="/yourBookings"
     })
-    console.log(this.booking)
-    window.location.href="/yourBookings"
+    this.walletService.getWallet().subscribe(data=>{
+      this.walletArray=data
+      this.walletArray[0].totalAmount+=this.booking.amount;
+      this.walletService.booking(this.walletArray[0]).subscribe(data=>{
+        data=data
+      })
+    }) 
   }
  
 }

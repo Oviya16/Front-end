@@ -17,7 +17,7 @@
             <td><p class="list-group-item-text">ARRIVAL DATE</p></td>
             <td ><p class="list-group-item-text">ARRIVAL TIME</p></td>
             <td ><p class="list-group-item-text">TICKETS AVAILABLE</p></td>
-            <td><p class="list-group-item-text"> TICKET COST</p></td>
+            <td><p class="list-group-item-text"> TICKET COST(₹)</p></td>
             </tr>
             <tr *ngFor="let sh of ship;let i=index;">
                 <td ><p class="list-group-item-text"  name="shipName" ></p>{{sh.shipName}}</td>
@@ -107,7 +107,7 @@
                     </div>
                     <br/>
                     <div class="col-lg-12">
-                        <label class="form-label">Total Cost</label>
+                        <label class="form-label">Total Cost(₹)</label>
                         <p name="quantity" class="form-control" >{{booking.amount}} 
                         </p>
                     </div>

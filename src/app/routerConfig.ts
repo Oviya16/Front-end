@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from 'src/app/login/login.component';
 import { SignUpComponent } from 'src/app/sign-up/sign-up.component';
 import { AddFeedbackComponent } from './add-feedback/add-feedback.component';
+import { ApproveRequestComponent } from './approve-request/approve-request.component';
 import { AssignTasksComponent } from './assign-tasks/assign-tasks.component';
 
 import { BookingComponent } from './booking/booking.component';
@@ -11,6 +12,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { ShipsComponent } from './ships/ships.component';
 import { ViewBookingsComponent } from './view-bookings/view-bookings.component';
+import { WalletComponent } from './wallet/wallet.component';
 import { YourBookingsComponent } from './your-bookings/your-bookings.component';
 import { YourTasksComponent } from './your-tasks/your-tasks.component';
 
@@ -28,5 +30,7 @@ export const appRoutes: Routes = [
     { path:'assignTasks',component:AssignTasksComponent},
     { path : 'feedback',component:FeedbackComponent},
     { path:'displayFeedback',component:DisplayFeedbackComponent},
-    { path: 'addFeedback',component:AddFeedbackComponent}
+    { path: 'addFeedback',component:AddFeedbackComponent},
+    { path:'wallet',component:WalletComponent},
+    { path: 'approveRequest',component:ApproveRequestComponent}
 ];

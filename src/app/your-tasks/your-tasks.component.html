@@ -9,7 +9,7 @@
             </tr>
             <tr *ngFor="let t of task;let i=index;">
                 <td ><p class="list-group-item-text"  name="task" >{{t.task}}</p></td>
-                <td ><p class="list-group-item-text"  name="fromDate" ></p>{{t.fromDate}</td>
+                <td ><p class="list-group-item-text"  name="fromDate" ></p>{{t.fromDate}}</td>
                 <td> <p class="list-group-item-text"  name="toDate" ></p>{{t.toDate}}</td>
                 <td> <p class="list-group-item-text"  name="status"></p>{{t.status}}</td>
                 <td><button class = "btn btn-primary" (click)="open(edit);index=i">Update status</button></td>
