@@ -103,7 +103,7 @@ export class ShipsComponent implements OnInit {
     };
     doc.html(this.content.nativeElement, {
       callback: (doc) => {
-        doc.save('Employees.pdf');
+        doc.save('Ships.pdf');
       }
 
     });

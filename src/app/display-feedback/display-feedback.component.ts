@@ -38,7 +38,7 @@ onAddClick(){
     };
     doc.html(this.content.nativeElement, {
       callback: (doc) => {
-        doc.save('Employees.pdf');
+        doc.save('Feedback.pdf');
       }
 
     });

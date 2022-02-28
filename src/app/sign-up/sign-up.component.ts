@@ -31,7 +31,7 @@ export class SignUpComponent implements OnInit {
     this.restService.postUser(this.user).subscribe(data => {
       data = data;
       if (data.status === 201) {
-        alert("New user created successfully")
+        alert("New user created ")
       }
       window.location.href="/login"
     });
